@@ -1,0 +1,16 @@
+{
+    "extensions":[
+        {
+            "extName": "Help",
+            "extension": "helpCommands"
+        }, 
+        {
+            "extName": "Pillars",
+            "extension": "pillarCommands"
+        },
+        {
+            "extName": "Admin",
+            "extension": "adminCommands"
+        }
+    ]
+}
