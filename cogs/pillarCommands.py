@@ -48,7 +48,7 @@ class Pillars(commands.Cog):
             title=f"{string2} {num}",
             description=f"{string1}",
             color=discord.Color.green()
-            )
+        )
 
         await ctx.send(embed=embed)
 
