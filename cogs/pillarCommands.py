@@ -26,7 +26,7 @@ class Pillars(commands.Cog):
             await ctx.send(f"{response['data']}")    
         
     @commands.command(pass_context=True)
-    async def pillar(self, ctx, *args):
+    async def pillars(self, ctx, *args):
         # if string == "":
         if not args:
             random.shuffle(self.pillars['pillars'])
@@ -51,14 +51,18 @@ class Pillars(commands.Cog):
             await ctx.send(embed=embed)
         elif args: 
             if args[0] == 'prefix' and args[1].isnumeric():
-                start, end = 1,10
+                start, end, index = 1,10, 0
                
-                num = int(args[1]) - 1
+                num = int(args[1])
                 print(type(num))
                 if num and num >= start and num <= end:
                     string2 = "Prefix"
-                    string1 = self.pillars['prefixes'][num]['prefix']
-                    number = self.pillars['prefixes'][num]['prefixNum']
+                    index = index + 1
+                    for i in self.pillars['prefixes']:
+                        if int(i['prefixNum']) == num:
+                            string1 = i['prefix']
+                            number = i['prefixNum']
+                        index = index + 1
                     embed = discord.Embed(
                         title=f"{string2} {number}",
                         description=f"{string1}",
@@ -66,21 +70,26 @@ class Pillars(commands.Cog):
                     )
                     await ctx.send(embed=embed)
             elif args[0] == 'pillar' and args[1].isnumeric():
-                start, end = 1,80
+                start, end,index = 1,80, 0
                
-                num = int(args[1]) - 1
+                num = int(args[1])
                 print(type(num))
                 if num and num >= start and num <= end:
                     string2 = "Pillars"
-                    string1 = self.pillars['pillars'][num]['pillar']
-                    number = self.pillars['pillars'][num]['pillarNum']
+                    index = index + 1
+                    for i in self.pillars['pillars']:
+                        if int(i['pillarNum']) == num: 
+                            string1 = i['pillar']
+                            number = i['pillarNum']
+                        index = index + 1
                     embed = discord.Embed(
                         title=f"{string2} {number}",
                         description=f"{string1}",
                         color=discord.Color.green()
                     )
                     await ctx.send(embed=embed)
-        
+            else:
+                await ctx.send(f"Please enter the right commands in the right context")
 
 def setup(bot):
     bot.add_cog(Pillars(bot))
