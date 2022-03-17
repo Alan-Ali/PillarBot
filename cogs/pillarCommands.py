@@ -4,7 +4,6 @@ import random
 import discord
 import utils.utils as ut
 from discord.ext import tasks, commands
-from dotenv import load_dotenv
 
 
 class Pillars(commands.Cog):
@@ -27,32 +26,61 @@ class Pillars(commands.Cog):
             await ctx.send(f"{response['data']}")    
         
     @commands.command(pass_context=True)
-    async def pillar(self, ctx):
+    async def pillar(self, ctx, *args):
         # if string == "":
+        if not args:
+            random.shuffle(self.pillars['pillars'])
+            random.shuffle(self.pillars['prefixes'])
+            
+            this = [[], []]
+            this[0].append(self.pillars['pillars'][0]['pillarNum'])
+            this[0].append(self.pillars['pillars'][0]['pillar'])
+            this[0].append("Pillar")
+            this[1].append(self.pillars['prefixes'][0]['prefixNum'])
+            this[1].append(self.pillars['prefixes'][0]['prefix'])
+            this[1].append("Prefix")
+            random.shuffle(this)
+            num = this[0][0]
+            string1 = this[0][1]
+            string2 = this[0][2]
+            embed = discord.Embed(
+                title=f"{string2} {num}",
+                description=f"{string1}",
+                color=discord.Color.green()
+            )
+            await ctx.send(embed=embed)
+        elif args: 
+            if args[0] == 'prefix' and args[1].isnumeric():
+                start, end = 1,10
+               
+                num = int(args[1]) - 1
+                print(type(num))
+                if num and num >= start and num <= end:
+                    string2 = "Prefix"
+                    string1 = self.pillars['prefixes'][num]['prefix']
+                    number = self.pillars['prefixes'][num]['prefixNum']
+                    embed = discord.Embed(
+                        title=f"{string2} {number}",
+                        description=f"{string1}",
+                        color=discord.Color.green()
+                    )
+                    await ctx.send(embed=embed)
+            elif args[0] == 'pillar' and args[1].isnumeric():
+                start, end = 1,80
+               
+                num = int(args[1]) - 1
+                print(type(num))
+                if num and num >= start and num <= end:
+                    string2 = "Pillars"
+                    string1 = self.pillars['pillars'][num]['pillar']
+                    number = self.pillars['pillars'][num]['pillarNum']
+                    embed = discord.Embed(
+                        title=f"{string2} {number}",
+                        description=f"{string1}",
+                        color=discord.Color.green()
+                    )
+                    await ctx.send(embed=embed)
         
-        random.shuffle(self.pillars['pillars'])
-        random.shuffle(self.pillars['prefixes'])
-        
-        this = [[], []]
-        this[0].append(self.pillars['pillars'][0]['pillarNum'])
-        this[0].append(self.pillars['pillars'][0]['pillar'])
-        this[0].append("Pillar")
-        this[1].append(self.pillars['prefixes'][0]['prefixNum'])
-        this[1].append(self.pillars['prefixes'][0]['prefix'])
-        this[1].append("Prefix")
-        random.shuffle(this)
-        num = this[0][0]
-        string1 = this[0][1]
-        string2 = this[0][2]
-        embed = discord.Embed(
-            title=f"{string2} {num}",
-            description=f"{string1}",
-            color=discord.Color.green()
-        )
-
-        await ctx.send(embed=embed)
-
-
 
 def setup(bot):
     bot.add_cog(Pillars(bot))

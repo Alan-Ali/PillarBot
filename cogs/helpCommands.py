@@ -3,7 +3,6 @@ import json
 import discord
 import utils.utils as ut
 from discord.ext import tasks, commands
-from dotenv import load_dotenv
 
 
 
