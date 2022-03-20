@@ -3,11 +3,21 @@ import discord
 from discord.ext import tasks, commands
 
 directory = {
-    "prefix": './JSON/prefixes.json' or 'PillarBot/JSON/prefixes.json',
-    "pillarJSON": './JSON/pillars.json' or 'PillarBot/JSON/pillars.json',
-    "pillarText": './data/pillarAddition.txt' or 'PillarBot/data/pillarAddition.txt',
-    "extJSON": "./JSON/extensions.json" or "PillarBot/JSON/extensions.json"
+    "prefix": './JSON/prefixes.json',
+    "pillarJSON": './JSON/pillars.json',
+    "pillarText": './data/pillarAddition.txt',
+    "extJSON": "./JSON/extensions.json"
 }
+
+# directory = {
+#     "prefix":  'PillarBot/JSON/prefixes.json',
+#     "pillarJSON":  'PillarBot/JSON/pillars.json',
+#     "pillarText":  'PillarBot/data/pillarAddition.txt',
+#     "extJSON":  "PillarBot/JSON/extensions.json"
+# }
+
+
+
 
 def readText(directory):
     with open(directory, "r") as pre:
