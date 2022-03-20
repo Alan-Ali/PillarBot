@@ -4,14 +4,13 @@ import discord
 import utils.utils as ut 
 from discord.ext import tasks, commands
 from dotenv import load_dotenv
-import cogs
 
 load_dotenv()
 GUILD = os.getenv('GUILD')
 TOKEN = os.getenv('TOKEN')
 
 # here we are opeing the extensions file to get the extension details
-with open('./JSON/extensions.json') as ext:
+with open(ut.directory['extJSON']) as ext:
     extData = json.load(ext)
 # here prefixes to write down the prefix we need, will be replaced later
 

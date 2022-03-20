@@ -3,9 +3,10 @@ import discord
 from discord.ext import tasks, commands
 
 directory = {
-    "prefix": './JSON/prefixes.json',
-    "pillarJSON": './JSON/pillars.json',
-    "pillarText": './data/pillarAddition.txt'
+    "prefix": './JSON/prefixes.json' or 'PillarBot/JSON/prefixes.json',
+    "pillarJSON": './JSON/pillars.json' or 'PillarBot/JSON/pillars.json',
+    "pillarText": './data/pillarAddition.txt' or 'PillarBot/data/pillarAddition.txt',
+    "extJSON": "./JSON/extensions.json" or "PillarBot/JSON/extensions.json"
 }
 
 def readText(directory):
@@ -15,15 +16,14 @@ def readText(directory):
         return pillarLines
 
 
-
 def readJSON(directory):
     with open(directory) as pre:
         return json.load(pre)
 
+
 def updateJSON(directory, newData):
     with open(directory, "w") as oldData:
         json.dump(newData, oldData)
-
 
 
 def getPrefix(client, message):
@@ -34,7 +34,6 @@ def getPrefix(client, message):
             return i['prefix']
         
     return allPrefixes[0]['prefix']
-
 
 
 def prefixCreation(ctx, prefix):
