@@ -27,9 +27,9 @@ def main():
     for extension in extensions:
         ext = extension['extension']
         try:
-            for folder in os.listdir("cogs"):
-                if os.path.exists(os.path.join("Python", folder, ext+".py")):
-                    bot.load_extension(f"Python.{folder}.{ext}")
+            for folder in os.listdir("PillarBot"):
+                if os.path.exists(os.path.join("PillarBot", folder, ext+".py")):
+                    bot.load_extension(f"PillarBot.{folder}.{ext}")
                 else:
                     bot.load_extension(f"cogs.{ext}")
         except Exception as errors:
