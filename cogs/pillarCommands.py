@@ -75,7 +75,7 @@ class Pillars(commands.Cog):
                 num = int(args[1])
                 print(type(num))
                 if num and num >= start and num <= end:
-                    string2 = "Pillars"
+                    string2 = "Pillar"
                     index = index + 1
                     for i in self.pillars['pillars']:
                         if int(i['pillarNum']) == num: 
