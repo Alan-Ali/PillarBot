@@ -1,5 +1,59 @@
 {
-    "help":[
-        
-    ]
+
+    "shortHelp": [
+            {   "id": 0,
+                "title": "<prefix here>help pillars",
+                "text": "use this command to know how to use pillar commands\n"
+            },
+            {
+                "id": 1,
+                "title": "<prefix here>help admin",
+                "text": "use this command to know how to use admin commands\n"
+            }
+        ],
+    "longHelp": {
+        "pillars": [
+            {   
+                "id": 0,
+                "title": "<prefix here>pillars",
+                "text": "use this command to get a random pillar\n"
+            },
+            {
+                 "id": 1,
+                 "title": "<prefix here>pillars pillar <number here>",
+                 "text": "use this command to get the specified number in the pillars\n"
+            },
+            {
+                "id": 2,
+                "title": "<prefix here>pillars prefix <number here>",
+                "text": "use this command to get the specified number in the pillars\n"
+            }
+        ],
+        "admin": [
+            {
+                "id": 0, 
+                "owner": 0,
+                "title": "<prefix here>prefix <new prefix here>",
+                "text": "use this command to get the specified number in the pillar but for prefixes\n"
+            },
+            { 
+                "id": 1,
+                "owner": 1,
+                "title": "<prefix here>load <extension>",
+                "text": "use this command to load the extension "
+            },
+            {
+                "id": 2,
+                "owner": 1,
+                "title": "<prefix here>unload <extension>",
+                "text": "use this command to unload the extension "
+            },
+            {
+                "id": 3,
+                "owner": 1,
+                "title": "<prefix here>reload <extension>",
+                "text": "use this command to reload the extension"
+            }
+        ]
+    }
 }

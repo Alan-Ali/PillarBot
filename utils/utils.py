@@ -2,19 +2,21 @@ import json
 import discord
 from discord.ext import tasks, commands
 
-directory = {
-    "prefix": './JSON/prefixes.json',
-    "pillarJSON": './JSON/pillars.json',
-    "pillarText": './data/pillarAddition.txt',
-    "extJSON": "./JSON/extensions.json"
-}
-
 # directory = {
-#     "prefix":  'PillarBot/JSON/prefixes.json',
-#     "pillarJSON":  'PillarBot/JSON/pillars.json',
-#     "pillarText":  'PillarBot/data/pillarAddition.txt',
-#     "extJSON":  "PillarBot/JSON/extensions.json"
+#     "prefix": './JSON/prefixes.json',
+#     "pillarJSON": './JSON/pillars.json',
+#     "pillarText": './data/pillarAddition.txt',
+#     "extJSON": "./JSON/extensions.json",
+#     "helpJSON": "./JSON/help.json"
 # }
+
+directory = {
+    "prefix":  'PillarBot/JSON/prefixes.json',
+    "pillarJSON":  'PillarBot/JSON/pillars.json',
+    "pillarText":  'PillarBot/data/pillarAddition.txt',
+    "extJSON":  "PillarBot/JSON/extensions.json",
+    "helpJSON": "PillarBot/JSON/help.json",
+}
 
 
 

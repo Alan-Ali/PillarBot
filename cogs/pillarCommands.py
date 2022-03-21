@@ -9,21 +9,8 @@ from discord.ext import tasks, commands
 class Pillars(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-        self.sd = ut.readJSON(ut.directory['prefix'])
         self.pillars = ut.readJSON(ut.directory['pillarJSON'])
-    
-    @commands.command(pass_context=True)
-    @commands.has_permissions(administrator=True)
-    async def prefix(self, ctx, prefix:str):
-        response = ut.prefixCreation(ctx, prefix)
-        if response['status'] == 1:
-            self.bot = response['data']
-            await ctx.send(f"prefix updated successfully")
-        elif response['status'] == 2:
-            self.bot = response['data']
-            await ctx.send(f"the old and the new prefix are the same")
-        else:
-            await ctx.send(f"{response['data']}")    
+        
         
     @commands.command(pass_context=True)
     async def pillars(self, ctx, *args):

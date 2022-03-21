@@ -33,7 +33,7 @@ def main():
                 else:
                     bot.load_extension(f"cogs.{ext}")
         except Exception as errors:
-            print(f'{ext} cannot be loaded. {errors}')
+            print(f'{errors}')
 
     bot.run(TOKEN)
 
