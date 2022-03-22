@@ -38,7 +38,7 @@ class Pillars(commands.Cog):
             await ctx.send(embed=embed)
         elif args: 
             if args[0] == 'prefix' and args[1].isnumeric():
-                start, end, index = 1,10, 0
+                start, end, index = 1,len(self.pillars['prefixes']), 0
                
                 num = int(args[1])
                 print(type(num))
@@ -57,7 +57,7 @@ class Pillars(commands.Cog):
                     )
                     await ctx.send(embed=embed)
             elif args[0] == 'pillar' and args[1].isnumeric():
-                start, end,index = 1,80, 0
+                start, end, index = 1, len(self.pillars['pillars']), 0
                
                 num = int(args[1])
                 print(type(num))

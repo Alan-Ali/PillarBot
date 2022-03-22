@@ -20,7 +20,6 @@ directory = {
 
 
 
-
 def readText(directory):
     with open(directory, "r") as pre:
         pillars = pre
