@@ -2,14 +2,14 @@ import json
 import utils as ut
 
 
-pillars = ut.readText(ut.directory['pillarText'])
+pillars = ut.readText("./data/pillarAddition.txt")
 # print(pillars[0])
 Text = "".join(pillars)
 allText = Text.split("&") 
 prefixes = allText[0].split('%')
 pillars = allText[1].split('%')
 print(pillars[0])
-pillarJSON = ut.readJSON(ut.directory['pillarJSON'])
+pillarJSON = ut.readJSON("./JSON/pillars.json")
 
 # print(pillarJSON)
 
@@ -36,7 +36,7 @@ for i in pillars:
     
     pillarJSON['pillars'].append(data)
 
-ut.updateJSON(ut.directory['pillarJSON'], pillarJSON)
+ut.updateJSON("./JSON/pillars.json", pillarJSON)
 
     
 
