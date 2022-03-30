@@ -1,4 +1,6 @@
-{"prefixes": [{
+{
+    "prefixes": [
+        {
             "prefixNum": 1,
             "prefix": "\nThe Source of Love is The Good Father, The Good Mother, The Living Way of Truth, The Good King/Queen. \nBut what words can truly and completely describe them? Let them introduce themselves to you, so that you\n may know them beyond what words can contain.\n"
         },
@@ -37,7 +39,10 @@
         {
             "prefixNum": 10,
             "prefix": "\nTo act against love is to block yourself from receiving love. During these times, go to the Source of Love, and ask to be made anew. No matter how far you are lost, you can always return to the Source, for our divine parents will not forsake us.\n"
-        }], "pillars": [{
+        }
+    ],
+    "pillars": [
+        {
             "pillarNum": 1,
             "pillar": "\nBe love. Begin wherever you find yourself each day. Remember, love is a state of being \u2014 an interconnectedness with the source and creation \u2014 not just a feeling. Not just a feeling, but the way. Not just the way, but a person that can live inside you. Do not look here nor there for the Infinite One. Instead, with a sincere heart, invite the Source of Love to take residence inside you, and in this way, both of you are found.\n"
         },
@@ -331,7 +336,7 @@
         },
         {
             "pillarNum": 74,
-            "pillar": "\nAs you walk with the Source of Love, imagine a kingdom where everyone is a prince and princess, and everyone is your precious family. Walk it\u2019s streets, greet and embrace every one you encounter. Next is to seek through the Source, to manifest the dream, every action together a seed, and thus the lonely tree becomes a forest, and the kingdom blooms even in the darkness.\n"
+            "pillar": "\nAs you walk with the Source of Love, imagine a kingdom where everyone is a prince and princess, and everyone is your precious family. Walk its streets, greet and embrace everyone you encounter. Next is to seek through the Source, to manifest the dream, every action together a seed, and thus the lonely tree becomes a forest, and the kingdom blooms even in the darkness.\n"
         },
         {
             "pillarNum": 75,
@@ -375,5 +380,15 @@
         },
         {
             "pillarNum": 85,
-            "pillar": "\nDo not judge people merely on their beliefs: highly value their intentions, their sincere pursuit of truth, and how they treat others and the world around them, and the fruits they produce from the vineyard that is their life\u2019s work. Value too these things in yourself, but try to see from the perspective of the Infinite One, and be humbled when you look upon your own efforts and abilities. The best we can do is seek purity of heart, universal benevolence, humility born from seeing from the perspective of the source, and not from the near-sighted eyes of humanity. In here, a heart of forgiveness. In here, find forgiveness for yourself."
-        }]}
+            "pillar": "\nDo not judge people merely on their beliefs: highly value their intentions, their sincere pursuit of truth, and how they treat others and the world around them, and the fruits they produce from the vineyard that is their life\u2019s work. Value too these things in yourself, but try to see from the perspective of the Infinite One, and be humbled when you look upon your own efforts and abilities. The best we can do is seek purity of heart, universal benevolence, humility born from seeing from the perspective of the source, and not from the near-sighted eyes of humanity. In here, a heart of forgiveness. In here, find forgiveness for yourself.\n"
+        },
+        {
+            "pillarNum": 86,
+            "pillar": "\nRemember that the dog protecting the flock of sheep was once a wolf, which would have never happened if a wolf and a man didn\u2019t become best friends. The wise know the difference between a garden snake, who is the guardian of the soil, eating the pests that would destroy the crop; and the snakes that wear human flesh. Wisdom comes from understanding, and there is no better motivator than love.\n"
+        },
+        {
+            "pillarNum": 87,
+            "pillar": "\nThere are other ways to cope than to become cold-hearted. May your love and connection with the Source make the Sun seem cold, thawing fear into peace and understanding."
+        }
+    ]
+}
