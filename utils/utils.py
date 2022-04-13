@@ -7,7 +7,8 @@ from discord.ext import tasks, commands
 #     "pillarJSON": './JSON/pillars.json',
 #     "pillarText": './data/pillarAddition.txt',
 #     "extJSON": "./JSON/extensions.json",
-#     "helpJSON": "./JSON/help.json"
+#     "helpJSON": "./JSON/help.json",
+#     "randChannel": "./JSON/pillarRandChannel.json"
 # }
 
 directory = {
@@ -16,6 +17,7 @@ directory = {
     "pillarText":  '../data/pillarAddition.txt',
     "extJSON":  "PillarBot/JSON/extensions.json",
     "helpJSON": "PillarBot/JSON/help.json",
+    "randChannel":"PillarBot/JSON/pillarRandChannel.json"
 }
 
 
