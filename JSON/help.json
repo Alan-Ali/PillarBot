@@ -27,7 +27,13 @@
                 "id": 2,
                 "title": "<prefix here>pillars prefix <number here>",
                 "text": "use this command to get the specified number in the pillars\n"
+            },
+            {
+                "id": 3,
+                "title": "<prefix here>setChannel <channel mention or id here>",
+                "text": "use this command to set the channel for getting random pillars\n"
             }
+
         ],
         "admin": [
             {

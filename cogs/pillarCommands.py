@@ -11,6 +11,7 @@ class Pillars(commands.Cog):
         self.bot = bot
         self.pillars = ut.readJSON(ut.directory['pillarJSON'])
         self.get_rand_channels = ut.readJSON(ut.directory['randChannel'])
+        self.tasks = []
 
     def randPillars(self):
         random.shuffle(self.pillars['pillars'])
@@ -35,18 +36,31 @@ class Pillars(commands.Cog):
         # return f"{string2} {num}\n{string1}"
         return embed
     
-    @tasks.loop(seconds=3600.0)
+    # @tasks.loop(seconds=3600.0)
+    # async def channelSet(self, arg):
+    #     channel = self.bot.get_channel(id=int(arg))
+
+    #     await channel.send(embed=self.randPillars())
+        # print("hello")
+
     async def channelSet(self, arg):
         channel = self.bot.get_channel(id=int(arg))
 
         await channel.send(embed=self.randPillars())
-        # print("hello")
+        print("hello")
 
+    
     @commands.Cog.listener()
     async def on_ready(self):
         for i in self.get_rand_channels['randChannels']:
-            self.channelSet.start(i['channel_rand'])
+            self.task_launcher(i['channel_rand'], seconds=20)
 
+    def task_launcher(self,arg, **interval ):
+        new_task = tasks.loop(**interval)(self.channelSet) # You can also pass a static interval and/or count
+        # Starting the task
+        new_task.start(arg)
+        self.tasks.append(new_task)
+    
     @commands.command()
     async def setChannel(self, ctx, *args):
         # embed = discord.Embed()
@@ -67,9 +81,21 @@ class Pillars(commands.Cog):
         # msg = await bot.wait_for("message")
         for i in self.get_rand_channels['randChannels']:
             if int(i['guild']) == int(ctx.message.guild.id):
-                found_2 = True
+                if int(i['channel_rand']) == int(found_1):
+                    found_2 = True
+                    break
+                else:
+                    data = {
+                        "guild": int(ctx.message.guild.id),
+                        "channel_rand": int(found_1)
+                    }
+                    self.get_rand_channels['randChannels'].append(data)
+
+                    ut.updateJSON(ut.directory['randChannel'], self.get_rand_channels)
+                    
 
         if found_2:
+            await ctx.send(embed=discord.Embed(color=ctx.author.color, title="", description="This channel Already Exists"))
             return
         else:
             data = {
@@ -79,9 +105,29 @@ class Pillars(commands.Cog):
             self.get_rand_channels['randChannels'].append(data)
 
             ut.updateJSON(ut.directory['randChannel'], self.get_rand_channels)
-
+            self.task_launcher(int(found_1), seconds=20)
+            await ctx.send(embed=discord.Embed(color=ctx.author.color,title="", description="Channel Added"))
             return
 
+    @commands.command(pass_context=True)
+    async def removeChannel(self, ctx, arg):
+        new_channels = {
+            "randChannels":[]
+        }
+        self.get_rand_channels['randChannels']
+        for i in self.get_rand_channels['randChannels']:
+            if int(i['channel_rand']) == int(arg) and int(i['guild']) == int(ctx.message.guild.id):
+                continue
+            else:
+                new_channels['randChannels'].append(i)
+        self.get_rand_channels = new_channels
+        ut.updateJSON(ut.directory['randChannel'], new_channels)
+        self.bot.unload_extension('cogs.pillarCommands')
+        self.bot.load_extension('cogs.pillarCommands')
+        await ctx.send(embed=discord.Embed(color=ctx.author.color, title="", description="Channel removed"))
+        
+        
+        
     @commands.command(pass_context=True)
     async def pillars(self, ctx, *args):
         # if string == "":
