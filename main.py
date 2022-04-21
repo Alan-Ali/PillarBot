@@ -27,7 +27,7 @@ def main():
     for extension in extensions:
         ext = extension['extension']
         try:
-            if os.path.exists("./PillarBot"):
+            if os.path.exists("PillarBot"):
                 for folder in os.listdir("PillarBot"):
                     if os.path.exists(os.path.join("PillarBot", folder, ext+".py")):
                         bot.load_extension(f"PillarBot.{folder}.{ext}")
